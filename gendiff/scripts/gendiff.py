@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-from gendiff import argparser
 from gendiff.difference import generate_diff
+from gendiff.argparser import parse_cli
+from gendiff.read_file import file1, file2
 
 
 def main():
-    first, second, format_data = argparser.parse_cli()
-    diff = generate_diff(first, second)
+    parse_cli()
+    diff = generate_diff(file1, file2)
     print(diff)
 
 

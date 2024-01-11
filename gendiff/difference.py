@@ -1,9 +1,3 @@
-from gendiff import read_file
-
-file1 = read_file.file1
-file2 = read_file.file2
-
-
 def generate_diff(file1, file2):
     nodes = ['{']
     keys = sorted(set(file1.keys()) | set(file2.keys()))
@@ -21,4 +15,4 @@ def generate_diff(file1, file2):
     return '\n'.join(nodes) + '\n}'
 
 
-print(generate_diff(file1, file2))
+# print(generate_diff(file1, file2))
