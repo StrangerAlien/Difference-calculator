@@ -13,7 +13,7 @@ jobs:
     steps: # список шагов, которые надо выполнить
       # экшен — выполняет какую-то задачу
       # checkout — клонирует репозиторий
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # run – произвольная bash-команда
       # ls -la выведет содержимое текущего репозитория
       - run: echo "ZAEBIZ"
