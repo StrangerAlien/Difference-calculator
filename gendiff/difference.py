@@ -12,7 +12,7 @@ def generate_diff(file1, file2):
         else:
             nodes.append(f'  - {key}: {file1[key]}')
             nodes.append(f'  + {key}: {file2[key]}')
-    return '\n'.join(nodes) + '\n}'
+    return '\n'.join(nodes) + '\n}\n'
 
 
 # print(generate_diff(file1, file2))
