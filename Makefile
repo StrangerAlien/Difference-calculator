@@ -16,8 +16,6 @@ coverage:
 lint:
 	poetry run flake8 gendiff tests
 
-check: test lint
-
 build:
 	poetry build
 
