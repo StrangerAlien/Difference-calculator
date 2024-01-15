@@ -8,4 +8,4 @@ def test_plain():
 
     with open(sample) as sample:
         sample_content = sample.read()
-    assert generate_diff(file1, file2) != sample_content
+    assert generate_diff(file1, file2) + '\n' == sample_content
