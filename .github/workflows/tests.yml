@@ -1,4 +1,4 @@
-name: gendiff_cli
+name: tests
 
 on:
   - push
