@@ -32,3 +32,4 @@ jobs:
         with:
           coverageCommand: make tests
           debug: true
+          coverageLocations: "${{github.workspace}}/coverage.xml:clover"
