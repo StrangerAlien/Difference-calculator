@@ -25,10 +25,11 @@ jobs:
       - name: Run Tests
         run: |
           make tests
-      - name: Test & publish code coverage
+      - name: Checking coverage by Code Climate
         uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make tests
-          debug: true
+          coverageCommand: make cover
+          coverageLocations: ./coverage.lcov:lcov
+          verifyDownload: true
