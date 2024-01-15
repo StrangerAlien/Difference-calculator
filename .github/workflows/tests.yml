@@ -30,6 +30,6 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make cover
+          coverageCommand: make tests
           coverageLocations: ./coverage.lcov:lcov
           verifyDownload: true
