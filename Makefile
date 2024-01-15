@@ -1,28 +1,25 @@
+.DEFAULT_GOAL := default
+
+default:
+	make build
+	make publish
+	make package-install
+
 install:
 	poetry install
 
-gendiff:
-	poetry run gendiff
-
-test:
-	poetry run pytest
-
-test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml
-
-coverage:
-	poetry run pytest --cov
-
-lint:
-	poetry run flake8 gendiff tests
-
 build:
+	rm -rf ./dist
 	poetry build
 
 publish:
 	poetry publish --dry-run
 
 package-install:
-	python3 -m pip install --user dist/*.whl --force-reinstall
+	python3 -m pip install --force-reinstall dist/*.whl
 
-start:	build package-install
+lint:
+	poetry run flake8 gendiff
+
+test:
+	poetry run pytest --cov=gendiff tests --cov-report xml
