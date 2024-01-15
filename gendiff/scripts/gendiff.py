@@ -7,7 +7,7 @@ from gendiff.read_file import file1, file2
 def main():
     parse_cli()
     diff = generate_diff(file1, file2)
-    print(diff)
+    return diff
 
 
 if __name__ == '__main__':
