@@ -1,4 +1,4 @@
-name: tests
+name: Python CI
 
 on:
   - push
@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         # we want to test our package on several versions of Python
-        python-version: [3.11]
+        python-version: [3.8, 3.9]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -22,13 +22,14 @@ jobs:
         run: |
           pip install poetry
           make install
-      - name: Run Tests
+      - name: Run linter and pytest
         run: |
-          make tests
-      - name: Code Coverage
+          make check
+      - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
+        if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make tests
+          coverageCommand: make test-coverage
           debug: true

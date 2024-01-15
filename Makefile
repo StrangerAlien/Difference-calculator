@@ -1,20 +1,21 @@
-build:
-	poetry build
-
 install:
 	poetry install
 
-publish:
-	poetry publish --dry-run
+test:
+	poetry run pytest
 
-package-install:
-	python3 -m pip install --force-reinstall dist/*.whl
+test-coverage:
+	poetry run pytest --cov=gendiff --cov-report xml
 
 lint:
 	poetry run flake8 .
 
-tests:
-	poetry run pytest
+selfcheck:
+	poetry check
 
-test-coverage:
-	poetry run pytest --cov=gendiff tests/ --cov-report xml
+check: selfcheck test lint
+
+build: check
+	poetry build
+
+.PHONY: install test lint selfcheck check build
