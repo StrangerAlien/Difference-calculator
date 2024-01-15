@@ -4,9 +4,6 @@ build:
 install:
 	poetry install
 
-install:
-	poetry install
-
 publish:
 	poetry publish --dry-run
 
