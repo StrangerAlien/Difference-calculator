@@ -1,4 +1,4 @@
-import pytest
+# import pytest
 from gendiff.difference import generate_diff
 from gendiff.read_file import file1, file2
 

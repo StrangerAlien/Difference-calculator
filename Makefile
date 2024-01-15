@@ -1,16 +1,11 @@
-.DEFAULT_GOAL := default
-
-default:
-	make build
-	make publish
-	make package-install
+build:
+	poetry build
 
 install:
 	poetry install
 
-build:
-	rm -rf ./dist
-	poetry build
+install:
+	poetry install
 
 publish:
 	poetry publish --dry-run
@@ -18,8 +13,8 @@ publish:
 package-install:
 	python3 -m pip install --force-reinstall dist/*.whl
 
-lint:
-	poetry run flake8 gendiff
+make lint:
+	poetry run flake8 .
 
-test:
+make tests:
 	poetry run pytest

@@ -23,8 +23,11 @@ jobs:
         make install
     - name: Run Tests
       run: |
-        make test
+        make tests
     - name: Tests Coverage
-      uses: paambaati/codeclimate-action@v2.7.5
+      uses: paambaati/codeclimate-action@v5.0.0
       env:
-        CC_TEST_REPORTER_ID: 44ce6628e27b03d823c66432397659bffe1136f7949933823e4fa37dd985087a
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      with:
+        coverageCommand: make tests
+        debug: true
