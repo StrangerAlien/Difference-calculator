@@ -19,4 +19,3 @@ def generate_diff(first_file_path, second_file_path):
             nodes.append(f'  - {key}: {file1[key]}')
             nodes.append(f'  + {key}: {file2[key]}')
     return '\n'.join(nodes) + '\n}\n'
-
