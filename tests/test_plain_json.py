@@ -1,9 +1,10 @@
-# import pytest
 from gendiff.difference import generate_diff
-from gendiff.read_file import file1, file2
+
+file1 = './tests/fixtures/file1.json'
+file2 = './tests/fixtures/file2.json'
 
 
-def test_plain():
+def test_plain_json():
     sample = './tests/fixtures/plain_result.txt'
 
     with open(sample) as sample:
