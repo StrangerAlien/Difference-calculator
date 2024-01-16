@@ -13,4 +13,4 @@ if __name__ == '__main__':
     main()
 
 # poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
-# poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+# poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml

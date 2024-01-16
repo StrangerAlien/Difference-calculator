@@ -15,6 +15,3 @@ def parse(data, extension):
         return json.load(data)
     if extension == 'yml' or 'yaml':
         return yaml.safe_load(data)
-
-# file1 = json.load(open('./tests/fixtures/file1.json'))
-# file2 = json.load(open('./tests/fixtures/file2.json'))
