@@ -12,6 +12,6 @@ def get_data(file_paht):
 
 def parse(data, extension):
     if extension == 'json':
-        return json.load(data)
+        return json.loads(data)
     if extension == 'yml' or 'yaml':
         return yaml.safe_load(data)

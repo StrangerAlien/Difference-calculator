@@ -1,44 +1,49 @@
 from gendiff.parse_file import get_data
 
 
-def generate_diff(first_file_path, second_file_path):
-    file1 = get_data(first_file_path)
-    file2 = get_data(second_file_path)
+def get_diff(data1, data2):
 
-    diff = []
-    keys = sorted(set(file1.keys()) | set(file2.keys()))
+    differ = []
+    keys = sorted(set(data1.keys()) | set(data2.keys()))
 
     for key in keys:
-        if key not in file1.keys():
-            diff.append({
+        if key not in data1.keys():
+            differ.append({
                 'key': key,
                 'type': 'add',
-                'value': file2[key]
+                'value': data2[key]
             })
-        elif key not in file2.keys():
-            diff.append({
+        elif key not in data2.keys():
+            differ.append({
                 'key': key,
                 'type': 'remove',
-                'value': file1[key]
+                'value': data1[key]
             })
-        elif isinstance(file1[key], dict) and isinstance(file2[key], dict):
-            diff.append({
+        elif isinstance(data1.get(key), dict) and isinstance(data2.get(key), dict):
+            differ.append({
                 'key': key,
                 'type': 'children',
-                'value': generate_diff(file1[key], file2[key])
+                'value': get_diff(data1[key], data2[key])
             })
-        elif file1[key] == file2[key]:
-            diff.append({
+        elif data1[key] == data2[key]:
+            differ.append({
                 'key': key,
                 'type': 'same',
-                'value': file1[key]
+                'value': data1[key]
             })
         else:
-            diff.append({
+            differ.append({
                 'key': key,
                 'type': 'change',
-                'value': file1[key],
-                'new_value': file2[key]
+                'value': data1[key],
+                'new_value': data2[key]
             })
 
+    return differ
+
+
+def generate_diff(first_file_path, second_file_path):
+    data1 = get_data(first_file_path)
+    data2 = get_data(second_file_path)
+    diff = get_diff(data1, data2)
     return diff
