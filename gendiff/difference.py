@@ -1,11 +1,11 @@
-from gendiff.parse_file import get_data
+# from gendiff.parse_file import get_data
 
 
-def generate_diff(first_file_path, second_file_path):
-    data1 = get_data(first_file_path)
-    data2 = get_data(second_file_path)
-    diff = get_diff(data1, data2)
-    return diff
+# def build_diff(first_file_path, second_file_path):
+#     data1 = get_data(first_file_path)
+#     data2 = get_data(second_file_path)
+#     diff = get_diff(data1, data2)
+#     return diff
 
 
 def get_diff(data1, data2):
@@ -45,5 +45,4 @@ def get_diff(data1, data2):
                 'value': data1[key],
                 'new_value': data2[key]
             })
-
     return differ
