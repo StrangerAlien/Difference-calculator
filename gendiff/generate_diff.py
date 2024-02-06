@@ -3,7 +3,7 @@ from gendiff.parse_file import get_data
 from gendiff.formatting.stylish import stylish  # and all
 
 
-def generate_diff(first_file_path, second_file_path, format_):
+def generate_diff(first_file_path, second_file_path, format_=stylish):
     diff = build_diff(first_file_path, second_file_path)
     return stylish(diff)
 

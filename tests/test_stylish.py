@@ -1,11 +1,11 @@
 from gendiff.generate_diff import generate_diff
 
-file1 = './tests/fixtures/file1.json'
-file2 = './tests/fixtures/file2.json'
+file1 = './tests/fixtures/file3.json'
+file2 = './tests/fixtures/file4.json'
 
 
 def test_plain_json():
-    sample = './tests/fixtures/plain_result.txt'
+    sample = './tests/fixtures/stylish.txt'
 
     with open(sample) as sample:
         sample_content = sample.read()

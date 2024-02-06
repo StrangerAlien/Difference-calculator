@@ -1,4 +1,4 @@
-from gendiff.difference import generate_diff
+from gendiff.generate_diff import generate_diff
 
 file1 = './tests/fixtures/file1.yml'
 file2 = './tests/fixtures/file2.yml'
