@@ -1,13 +1,3 @@
-# from gendiff.parse_file import get_data
-
-
-# def build_diff(first_file_path, second_file_path):
-#     data1 = get_data(first_file_path)
-#     data2 = get_data(second_file_path)
-#     diff = get_diff(data1, data2)
-#     return diff
-
-
 def get_diff(data1, data2):
 
     differ = []
@@ -26,7 +16,8 @@ def get_diff(data1, data2):
                 'type': 'remove',
                 'value': data1[key]
             })
-        elif isinstance(data1.get(key), dict) and isinstance(data2.get(key), dict):
+        elif isinstance(data1.get(key), dict) and \
+                isinstance(data2.get(key), dict):
             differ.append({
                 'key': key,
                 'type': 'children',
