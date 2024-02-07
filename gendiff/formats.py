@@ -6,4 +6,3 @@ def formating(diff, format_):
         return stylish.stylish(diff)
     elif format_ == 'plain':
         return plain.plain(diff)
-
