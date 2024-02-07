@@ -22,5 +22,5 @@ if __name__ == '__main__':
 # poetry run gendiff --format stylish tests/fixtures/file3.json
 # tests/fixtures/file4.json
 
-# poetry run gendiff --format json tests/fixtures/file3.json
-# tests/fixtures/file4.json
+# poetry run gendiff --format json tests/fixtures/file1.json
+# tests/fixtures/file2.json
