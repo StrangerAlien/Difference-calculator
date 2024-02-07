@@ -1,9 +1,11 @@
+from gendiff.make_str import make_str
+
 INDENT = ' '
 SPACES_COUNT = 4
 
 
 def stylish(diff):
-    def iter(tree, depth=0):
+    def iterate(tree, depth=0):
 
         result = ['{']
         offset = depth + SPACES_COUNT
@@ -13,7 +15,9 @@ def stylish(diff):
             value, new_value = node.get('value'), node.get('new_value')
             value_str = deep_line(value)
             new_value_str = deep_line(new_value)
+
             spaces = INDENT * (offset - 2)
+
             added = f'{spaces}+ {key}: {value_str}'
             removed = f'{spaces}- {key}: {value_str}'
             samed = f'{spaces}  {key}: {value_str}'
@@ -30,17 +34,12 @@ def stylish(diff):
                 result.append(changed)
             elif type == 'children':
                 result.append(f'{INDENT * offset}{key}: '
-                              + iter(value, offset))
+                              + iterate(value, offset))
 
         result.append(f'{INDENT * depth + "}"}')
         return '\n'.join(result)
 
-    return iter(diff)
-
-
-def make_str(string_value):
-    return str(string_value).lower() if isinstance(string_value, bool) \
-        else "null" if string_value is None else str(string_value)
+    return iterate(diff)
 
 
 def deep_line(value, depth=0):
