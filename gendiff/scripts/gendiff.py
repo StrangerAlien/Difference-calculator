@@ -21,3 +21,6 @@ if __name__ == '__main__':
 # tests/fixtures/file4.json
 # poetry run gendiff --format stylish tests/fixtures/file3.json
 # tests/fixtures/file4.json
+
+# poetry run gendiff --format json tests/fixtures/file3.json
+# tests/fixtures/file4.json
