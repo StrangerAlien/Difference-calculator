@@ -24,9 +24,9 @@ Property 'verbose' was added with value: true
 
 ### Dependencies
 
-- python = ">=3.6"
-- poetry = ">=1.2.0"
-- pip = ">=19"
+- python = ">=3.11"
+- poetry = ">=1.7.1"
+- pip = ">=23.3.2"
 
 ### Install
 
