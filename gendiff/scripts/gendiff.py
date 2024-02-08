@@ -11,16 +11,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
-# poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
-
-# poetry run gendiff tests/fixtures/file3.json tests/fixtures/file4.json
-
-# poetry run gendiff --format plain tests/fixtures/file3.json
-# tests/fixtures/file4.json
-# poetry run gendiff --format stylish tests/fixtures/file3.json
-# tests/fixtures/file4.json
-
-# poetry run gendiff --format json tests/fixtures/file1.json
-# tests/fixtures/file2.json

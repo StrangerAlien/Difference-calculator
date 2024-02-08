@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "gendiff Compares two configuration files and shows a difference."
+authors = ["StrangerAlien <jiunov@gmail.com>"]
 readme = "README.md"
 packages = [
   { include = "gendiff" },
