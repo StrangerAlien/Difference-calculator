@@ -1,7 +1,7 @@
 from gendiff.formatting import stylish, plain, make_json
 
 
-def formating(diff, format_):
+def formating(diff, format_="stylish"):
     if format_ == 'stylish':
         return stylish.stylish(diff)
     elif format_ == 'plain':
