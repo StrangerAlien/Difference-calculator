@@ -12,8 +12,8 @@ result_stylish = 'tests/fixtures/result_stylish'
 @pytest.mark.parametrize(
     'file1, file2, format_, expected',
     [
-        (file1_json, file2_json, "stylish", 'tests/fixtures/result_stylish'),
-        (file1_json, file2_json, "plain", 'tests/fixtures/result_plain'),
+        (file1_json, file2_json, "stylish", result_stylish),
+        (file1_json, file2_json, "plain", result_plain),
         (file1_yml, file2_yml, "plain", result_plain),
         (file1_yml, file2_yml, "stylish", result_stylish)]
 )
