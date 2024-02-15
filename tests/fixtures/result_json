@@ -1,0 +1,175 @@
+[
+    {
+        "key": "common",
+        "type": "children",
+        "value": [
+            {
+                "key": "follow",
+                "type": "add",
+                "value": false
+            },
+            {
+                "key": "setting1",
+                "type": "same",
+                "value": "Value 1"
+            },
+            {
+                "key": "setting2",
+                "type": "remove",
+                "value": 200
+            },
+            {
+                "key": "setting3",
+                "type": "change",
+                "value": true,
+                "new_value": {
+                    "key": "value"
+                }
+            },
+            {
+                "key": "setting4",
+                "type": "add",
+                "value": "blah blah"
+            },
+            {
+                "key": "setting5",
+                "type": "add",
+                "value": {
+                    "key5": "value5"
+                }
+            },
+            {
+                "key": "setting6",
+                "type": "children",
+                "value": [
+                    {
+                        "key": "doge",
+                        "type": "children",
+                        "value": [
+                            {
+                                "key": "wow",
+                                "type": "change",
+                                "value": "too much",
+                                "new_value": "so much"
+                            }
+                        ]
+                    },
+                    {
+                        "key": "key",
+                        "type": "same",
+                        "value": "value"
+                    },
+                    {
+                        "key": "ops",
+                        "type": "add",
+                        "value": "vops"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "group1",
+        "type": "children",
+        "value": [
+            {
+                "key": "baz",
+                "type": "change",
+                "value": "bas",
+                "new_value": "bars"
+            },
+            {
+                "key": "foo",
+                "type": "same",
+                "value": "bar"
+            },
+            {
+                "key": "nest",
+                "type": "change",
+                "value": {
+                    "key": "value"
+                },
+                "new_value": "str"
+            }
+        ]
+    },
+    {
+        "key": "group2",
+        "type": "remove",
+        "value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        }
+    },
+    {
+        "key": "group3",
+        "type": "add",
+        "value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        }
+    },
+    {
+        "key": "group4",
+        "type": "children",
+        "value": [
+            {
+                "key": "default",
+                "type": "change",
+                "value": null,
+                "new_value": ""
+            },
+            {
+                "key": "foo",
+                "type": "change",
+                "value": 0,
+                "new_value": null
+            },
+            {
+                "key": "isNested",
+                "type": "change",
+                "value": false,
+                "new_value": "none"
+            },
+            {
+                "key": "key",
+                "type": "add",
+                "value": false
+            },
+            {
+                "key": "nest",
+                "type": "children",
+                "value": [
+                    {
+                        "key": "bar",
+                        "type": "change",
+                        "value": "",
+                        "new_value": 0
+                    },
+                    {
+                        "key": "isNested",
+                        "type": "remove",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "key": "someKey",
+                "type": "add",
+                "value": true
+            },
+            {
+                "key": "type",
+                "type": "change",
+                "value": "bas",
+                "new_value": "bar"
+            }
+        ]
+    }
+]
