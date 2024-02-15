@@ -15,7 +15,8 @@ result_stylish = 'tests/fixtures/result_stylish'
         (file1_json, file2_json, "stylish", result_stylish),
         (file1_json, file2_json, "plain", result_plain),
         (file1_yml, file2_yml, "plain", result_plain),
-        (file1_yml, file2_yml, "stylish", result_stylish)]
+        (file1_yml, file2_yml, "stylish", result_stylish)
+    ]
 )
 def test_generate_diff(file1, file2, format_, expected):
     assert generate_diff(file1, file2, format_) == open(expected).read()
