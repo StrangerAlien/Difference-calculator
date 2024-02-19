@@ -1,6 +1,3 @@
-from gendiff.make_str import make_str
-
-
 def plain(diff, path=''):
     result = []
     for node in diff:
@@ -31,4 +28,6 @@ def deep_line(value):
     if isinstance(value, dict):
         return '[complex value]'
     new_value = f"'{value}'" if isinstance(value, str) else value
-    return make_str(new_value)
+
+    return str(new_value).lower() if isinstance(new_value, bool) \
+        else "null" if new_value is None else str(new_value)

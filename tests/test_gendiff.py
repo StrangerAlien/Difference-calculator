@@ -1,24 +1,35 @@
 import pytest
-from gendiff.generate_diff import generate_diff
+import os
+from gendiff import generate_diff
 
-file1_json = 'tests/fixtures/file1.json'
-file2_json = 'tests/fixtures/file2.json'
-file1_yml = 'tests/fixtures/file1.yml'
-file2_yml = 'tests/fixtures/file2.yml'
-result_plain = 'tests/fixtures/result_plain'
-result_stylish = 'tests/fixtures/result_stylish'
-result_json = 'tests/fixtures/result_json'
+
+@pytest.fixture
+def prepared_files(request):
+    file1, file2, expected, format_name = request.param
+
+    fixtures_path = os.path.join(os.path.dirname(__file__), "fixtures")
+
+    with open(os.path.join(fixtures_path, expected)) as result_file:
+        return (
+            os.path.join(fixtures_path, file1),
+            os.path.join(fixtures_path, file2),
+            result_file.read(),
+            format_name
+        )
 
 
 @pytest.mark.parametrize(
-    'file1, file2, format_, expected',
-    [
-        (file1_json, file2_json, 'stylish', result_stylish),
-        (file1_json, file2_json, 'plain', result_plain),
-        (file1_yml, file2_yml, 'plain', result_plain),
-        (file1_yml, file2_yml, 'stylish', result_stylish),
-        (file1_json, file2_json, 'json', result_json)
-    ]
+    argnames='prepared_files',
+    argvalues=[
+        ('file1.json', 'file2.json', 'result_stylish', 'stylish'),
+        ('file1.yml', 'file2.yml', 'result_stylish', 'stylish'),
+        ('file1.json', 'file2.json', 'result_plain', 'plain'),
+        ('file1.yml', 'file2.yml', 'result_plain', 'plain'),
+        ('file1.json', 'file2.json', 'result_json', 'json')
+    ],
+    indirect=True
 )
-def test_generate_diff(file1, file2, format_, expected):
-    assert generate_diff(file1, file2, format_) == open(expected).read()
+def test_generate_diff(prepared_files):
+    file1, file2, result_render, format_name = prepared_files
+
+    assert result_render == generate_diff(file1, file2, format_name)

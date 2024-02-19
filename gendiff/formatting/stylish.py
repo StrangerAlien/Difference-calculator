@@ -1,5 +1,3 @@
-from gendiff.make_str import make_str
-
 INDENT = ' '
 SPACES_COUNT = 4
 
@@ -52,3 +50,8 @@ def deep_line(value, depth):
             lines.append(format_key + make_str(current))
     lines.append(f'{INDENT * (depth + SPACES_COUNT) + "}"}')
     return '\n'.join(lines)
+
+
+def make_str(string_value):
+    return str(string_value).lower() if isinstance(string_value, bool) \
+        else "null" if string_value is None else str(string_value)
