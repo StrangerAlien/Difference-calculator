@@ -31,7 +31,7 @@ Property 'verbose' was added with value: true
 ### Install
 
 ```bash
-git clone https://github.com/StrangerAlien/python-project-50
+git clone https://github.com/StrangerAlien/Difference-calculator
 
 cd python-project-50/
 
